@@ -9,5 +9,5 @@ $numFilas = $resultado->num_rows;
 if ($numFilas == 1) {
     echo "Usuario encontrado. Bienvenido!";
 } else {
-    header("Location: logindb.php");
+    header("Location: index.php");
 }
