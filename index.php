@@ -17,6 +17,7 @@
 <body>
     <section id="container">
         <form action="methods.php" method="post" enctype="multipart/form-data">
+
             <img class="imgChallen" src="./images/devchallenges.svg" alt="devchallenges.svg" /><br><br>
 
             <h2>Join thousands of learners from around the world</h2><br>
@@ -34,7 +35,6 @@
             </div><br><br>
 
             <p>
-                <!--&#160;-->
                 <?php
                 if (isset($_SESSION["errorx"])) {
                     echo $_SESSION["errorx"];

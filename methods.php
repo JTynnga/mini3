@@ -1,18 +1,18 @@
 <?php
-require("connection.php");
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     session_start();
-    $_SESSION["email"] = $_POST["correo"];
-    $_SESSION["passw"] = $_POST["clave"];
-    echo $_SESSION;
+    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["passw"] = $_POST["passw"];
 
     $email_u = $_SESSION["email"];
     $passw_u = $_SESSION["passw"];
+    echo $email_u;
+
+    require("connection.php");
 
     $hash = password_hash($pass_u, PASSWORD_DEFAULT);
 
-    $repeEmail = "SELECT * FROM usuarios WHERE email = '$email_u'";
+    $repeEmail = "SELECT * FROM usuarios WHERE correo = '$email_u'";
 
     $resultTryLg = $mysqli->query($repeEmail);
     $datosTryLg = $resultTryLg->fetch_assoc();
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $ejecutarDatos = $mysqli->query($insertarUsers_Info);
 
-            $showInfo = "SELECT * FROM usuarios WHERE cirreo = '$email_u' AND password = '$hash';";
+            $showInfo = "SELECT * FROM usuarios WHERE correo = '$email_u' AND password = '$hash';";
 
             $resultado = $mysqli->query($showInfo);
 
